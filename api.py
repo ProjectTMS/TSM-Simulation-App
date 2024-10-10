@@ -1,4 +1,3 @@
-TMS App/TSM-Simulation-App/api.py
 import streamlit as st
 import cv2
 import numpy as np
