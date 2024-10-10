@@ -95,7 +95,7 @@ def main():
         return
 
     # Red light duration slider
-    red_light_duration = st.slider("Red Light Duration (seconds)", min_value=1, max_value=180, value=5)
+    red_light_duration = st.slider("Red Light Duration (seconds)", min_value=1, max_value=120, value=5)
     yellow_light_duration = st.slider("Yellow Light Duration (seconds)", min_value=1, max_value=5, value=2)
 
     # Initialize signal states
