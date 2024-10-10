@@ -95,7 +95,7 @@ def main():
         return
 
     # Red light duration slider
-    red_light_duration = st.slider("Red Light Duration (seconds)", min_value=1, max_value=120, value=5)
+    red_light_duration = st.slider("Red Light Duration (seconds)", min_value=1, max_value=120, value=10)
     yellow_light_duration = st.slider("Yellow Light Duration (seconds)", min_value=1, max_value=5, value=2)
 
     # Initialize signal states
@@ -112,9 +112,19 @@ def main():
     pause_button = col2.button("Pause/Resume")
     stop_button = col3.button("Stop")
 
-    # Create placeholders for video streams and counters
-    video_placeholders = [st.empty() for _ in video_files]
-    counter_placeholders = [st.empty() for _ in video_files]
+    # Create placeholders for video streams and counters in a grid layout
+    video_placeholders = []
+    counter_placeholders = []
+
+    # Arrange video feeds in a grid with titles
+    for i in range(0, len(video_files), 2):
+        cols = st.columns(2)
+        for j, col in enumerate(cols):
+            if i + j < len(video_files):
+                with col:
+                    st.subheader(f"Road {i + j + 1}")
+                    video_placeholders.append(st.empty())
+                    counter_placeholders.append(st.empty())
 
     if start_button:
         stop_event.clear()
