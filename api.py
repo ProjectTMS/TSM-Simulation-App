@@ -109,7 +109,7 @@ def main():
     # Control buttons
     col1, col2, col3 = st.columns(3)
     start_button = col1.button("Start Traffic Management")
-    pause_button = col2.button("Pause/Resume")
+    #pause_button = col2.button("Pause/Resume")
     stop_button = col3.button("Stop")
 
     # Create placeholders for video streams and counters in a grid layout
