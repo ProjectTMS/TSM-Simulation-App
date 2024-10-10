@@ -1,3 +1,4 @@
+TMS App/TSM-Simulation-App/api.py
 import streamlit as st
 import cv2
 import numpy as np
@@ -107,9 +108,8 @@ def main():
     signal_states = [SignalState() for _ in video_files]
 
     # Control buttons
-    col1, col2, col3 = st.columns(3)
+    col1, col3 = st.columns(2)
     start_button = col1.button("Start Traffic Management")
-    #pause_button = col2.button("Pause/Resume")
     stop_button = col3.button("Stop")
 
     # Create placeholders for video streams and counters in a grid layout
@@ -221,12 +221,6 @@ def main():
 
             # Pause for a moment to allow for visual updates
             time.sleep(0.1)
-
-    if pause_button:
-        if pause_event.is_set():
-            pause_event.clear()
-        else:
-            pause_event.set()
 
     if stop_button:
         stop_event.set()
