@@ -158,11 +158,11 @@ def main():
                         vehicle_counts.append(vehicle_count)
 
                         # Update counter
-                        counter.text(f"Road {i+1} - Vehicles: {vehicle_count}")
+                        #counter.text(f"Road {i+1} - Vehicles: {vehicle_count}")
                     else:
                         vehicle_counts.append(0)
                         frame = last_frames[i]
-                        counter.text(f"Road {i+1} - Vehicles: {vehicle_counts[i]}")
+                        #counter.text(f"Road {i+1} - Vehicles: {vehicle_counts[i]}")
 
                     # Always update the frame to show current light state
                     frame = draw_traffic_light(frame, state.value)
