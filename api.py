@@ -8,7 +8,7 @@ import os
 from threading import Event
 
 # Load the YOLO model
-model = YOLO('bestV2.pt')
+model = YOLO('best.pt')
 
 # Define the class names
 class_names = ['bicycle', 'bus', 'car', 'motorbike', 'person']
