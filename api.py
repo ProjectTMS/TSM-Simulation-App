@@ -249,9 +249,18 @@ def main():
 
                 # Switch the current yellow to red
                 signal_states[current_green].value = 'red'
-                current_green = next_green
 
-                # Set the new green signal
+                # Set the new green signal to yellow first
+                signal_states[next_green].value = 'yellow'
+                for _ in range(yellow_light_duration):
+                    for i, (placeholder, state) in enumerate(zip(video_placeholders, signal_states)):
+                        frame, _ = last_frames[i]
+                        frame = draw_traffic_light(frame, state.value)
+                        placeholder.image(frame)
+                    time.sleep(1)
+
+                # Finally, switch the new yellow to green
+                current_green = next_green
                 signal_states[current_green].value = 'green'
                 signal_states[current_green].last_change = time.time()
                 signal_states[current_green].transition_count = 0  # Reset transition count for the new green road
